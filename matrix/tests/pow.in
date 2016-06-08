@@ -1,0 +1,8 @@
+SET c = sequence 1 1
+SHOW c
+SET e = matrix.pow c 1
+SHOW e
+SET f = matrix.pow c 2
+SHOW f
+SET h = matrix.pow c 3
+SHOW h

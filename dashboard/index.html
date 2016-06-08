@@ -1,0 +1,89 @@
+<!doctype html>
+
+<html>
+<head>
+<title>JustGage Demo By GBin1.com</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<style>
+body {
+    text-align: center;
+    font-family: Arial;
+}
+
+#g1 {
+    width:400px; height:320px;
+    display: inline-block;
+    margin: 1em;
+    border: 1px soild #202020;
+    box-shadow: 0px 0px 15px #101010;
+    margin-top: 120px;
+    border-radius: 8px;
+}
+
+p {
+    display: block;
+    width: 400px;
+    margin: 2em auto;
+    text-align: center;
+    border-top: 1px soild #CCC;
+    border-bottom: 1px soild #CCC;
+    background: #333333;
+    padding:10px 0px;
+    color: #CCC;
+    text-shadow: 1px 1px 25px #000000;
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 0px 0px 10px #202020;
+}
+</style>
+
+<script src="js/raphael-2.1.4.min.js"></script>
+<script src="js/justgage.js"></script>
+<script>
+function readTextFile(file)
+{
+    var rawFile = new XMLHttpRequest();
+    rawFile.open("GET", file, false);
+    rawFile.onreadystatechange = function ()
+    {
+        if(rawFile.readyState === 4)
+        {
+            if(rawFile.status === 200 || rawFile.status == 0)
+            {
+                var allText = rawFile.responseText;
+                alert(allText);
+            }
+        }
+    }
+    rawFile.send(null);
+}
+var g1;
+
+window.onload = function(){
+    var g1 = new JustGage({
+id: "g1", 
+value: getRandomInt(0, 100), 
+min: 0,
+max: 100,
+title: "Temp",
+label: "D",
+levelColors: [
+"#222222",
+"#555555",
+"#CCCCCC"
+]    
+});
+
+setInterval(function() {
+        g1.refresh(getRandomInt(80, 100));
+        }, 800);
+};
+file = "file:///home/sol315/taobao/test.txt";
+readTextFile(file);
+</script>
+</head>
+<body>    
+<div id="g1"></div>
+<div id="g2"></div>
+<div id="g3"></div>
+</body>
+</html>

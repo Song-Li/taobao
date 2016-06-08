@@ -1,0 +1,9 @@
+SET A = sequence 1 1
+SHOW A
+COMPUTE determinant A
+SET B = identity
+SHOW B
+SET C = matrix.add A B
+SHOW C
+COMPUTE determinant C
+
